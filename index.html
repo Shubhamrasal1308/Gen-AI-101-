@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Car Fact</h1>
+        <p id="car-fact"></p>
+        <button id="next-fact">Next Fact</button>
+    </div>
+    <script>
+        const carFacts = [
+            "The first gasoline-powered car was invented in 1885 by Karl Benz.",
+            "The world's fastest production car is the Bugatti Chiron Super Sport 300+, which can reach speeds of over 300 mph.",
+            "Electric cars produce zero tailpipe emissions, making them more environmentally friendly than traditional gasoline cars.",
+            "The average car has about 30,000 parts.",
+            "The Ford Model T, introduced in 1908, was the first car mass-produced on assembly lines.",
+            "The first car radio was introduced in 1929.",
+            "The longest car in the world is the 1986 Cadillac Eldorado, which measures 100 feet long.",
+            "In 2020, electric vehicles accounted for about 2.5% of global car sales.",
+            "The average lifespan of a car is around 11 years.",
+            "The first traffic light was installed in 1868 in London."
+        ];
+
+        let currentFactIndex = 0;
+
+        function displayFact() {
+            document.getElementById('car-fact').innerText = carFacts[currentFactIndex];
+        }
+
+        document.getElementById('next-fact').addEventListener('click', () => {
+            currentFactIndex = (currentFactIndex + 1) % carFacts.length;
+            displayFact();
+        });
+
+        // Display the first fact on page load
+        displayFact();
+    </script>
+</body>
+</html>
